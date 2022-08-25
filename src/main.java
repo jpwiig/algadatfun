@@ -1,17 +1,24 @@
 import Algoritmereffektivitet.fakultet;
 import Algoritmereffektivitet.maksogmin;
+import Algoritmereffektivitet.tid;
 
 public class main {
 public static void main(String[]args){
     int[] a = {8, 3,5, 7, 9, 2, 1, 4};
     fakultet fakkas = new fakultet();
     maksogmin mnm= new maksogmin();
-    int fakultet = 10;
-    System.out.println(mnm.max(a));
+    int fakultet = 4;
+    tid time = new tid();
 
-    System.out.println(fakkas.fak(fakultet));
+    int [] al = {1, 4, 8, 12, 12, 12, 9};
+    System.out.println(mnm.max(a));
+    System.out.println(time.maks(a));
+    System.out.println("fakultet: " + fakkas.fak(fakultet));
     int [] b = {12, 11, 12, 13, 14, 15, 15, 10, 2};
+   int []bø = mnm.minmaks(a);
+    for (int j : bø) System.out.print( j + " ");
 
     System.out.println("plassering på den seneste max er: " + mnm.samenum(b));
+    System.out.println("programkode 1.15: " + time.maks(al));
 }
 }
