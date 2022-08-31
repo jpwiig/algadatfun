@@ -1,3 +1,4 @@
+import Algoritmereffektivitet.Tabell;
 import Algoritmereffektivitet.fakultet;
 import Algoritmereffektivitet.maksogmin;
 import Algoritmereffektivitet.tid;
@@ -17,8 +18,15 @@ public static void main(String[]args){
     int [] b = {12, 11, 12, 13, 14, 15, 15, 10, 2};
    int []bø = mnm.minmaks(a);
     for (int j : bø) System.out.print( j + " ");
-
     System.out.println("plassering på den seneste max er: " + mnm.samenum(b));
     System.out.println("programkode 1.15: " + time.maks(al));
+
+    //1.2.2 oppgave 2:
+    System.out.println("1.2.2 Oppgave 2: " );
+    int []aT = Tabell.randPerm(20); //random array
+    for (int k: aT) System.out.print(k + " ");
+
+    int m = Tabell.maks(aT);
+    System.out.println("\nden største verdi ligger på plass: " +m);
 }
 }

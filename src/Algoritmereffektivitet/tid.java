@@ -5,7 +5,7 @@ public class tid {
     public static int maks(int[] a)  // versjon 3 av maks-metoden
     {
         int sist = a.length - 1;// siste posisjon i tabellen
-        int first = a[0];
+        int first = 1;
         int m = 0;                     // indeks til største verdi
         int maksverdi = a[0];          // største verdi
         int temp = a[sist];            // tar vare på siste verdi
@@ -19,13 +19,12 @@ public class tid {
                     a[sist] = temp;          // legger siste verdi tilbake
                     return temp >= maksverdi ? sist : m;   // er siste størst?
                 }
-                if (maksverdi == a[first]) {
-                    maksverdi = a[first];
-                }
                 else {
                     maksverdi = a[i];        // maksverdi oppdateres
-                    m = i;                   // m oppdateres
+                    m = i;// m oppdateres
+
                 }
+                if (maksverdi == a[first]) maksverdi = first;
             }
     } // maks
 
