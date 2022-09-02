@@ -26,7 +26,11 @@ public static void main(String[]args){
     int []aT = Tabell.randPerm(20); //random array
     for (int k: aT) System.out.print(k + " ");
 
+    int []nm = Tabell.nestMaks(aT);
+
     int m = Tabell.maks(aT);
     System.out.println("\nden største verdi ligger på plass: " +m);
+    System.out.print("nest størst: ");
+    for (int i : nm) System.out.print( i + " ");
 }
 }
