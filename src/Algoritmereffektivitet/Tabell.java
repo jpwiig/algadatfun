@@ -40,12 +40,12 @@ public class Tabell {
 
     public static int max(int[] a, int fra, int til) {
         if (fra < 0 || til > a.length || fra >= a.length) {
-            throw new IllegalArgumentException("illegal argument");
+            throw new IllegalArgumentException("illegal argument MIN");
         }
         int m = fra;
         int maksverdi = a[fra];
         for (int i = fra; i < til; i++) {
-            if (a[i] > maksverdi) {
+            if (a[i] > = maksverdi) {
                 m = i;
                 maksverdi = a[m];
             }
@@ -72,8 +72,7 @@ public class Tabell {
 
     public static int min(int[] a, int fra, int til) {
         if (fra == til) {
-            throw new NoSuchElementException
-                    ("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
+            throw new NoSuchElementException("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
         }
 
         int m = fra;
@@ -200,14 +199,16 @@ public class Tabell {
         return new int[]{m, nm};      // m i posisjon 0 , nm i posisjon 1
     }
 
-    public int[] sorter(int []a) {
-        int fra = a.length - 1;
-        int til = 0;
-        for (int i = fra; i > til; i--) {
-            int max = max([]a ,a[til], a[fra]);
-            bytt([]a, til, fra);
+    public static int[] sorter(int[] a) {
+        int fra = 0;
+        int til = a.length;
+
+        for (int i = til - 1; i > fra; i--) {
+            //  int max = max(a,a[til], a[i]);
+            int max = max(a, 0, i - 1);
+            bytt(a, i, max);
         }
-        return a[];
+        return a;
     }
 }
 

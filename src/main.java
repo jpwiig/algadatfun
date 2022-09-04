@@ -32,5 +32,9 @@ public static void main(String[]args){
     System.out.println("\nden største verdi ligger på plass: " +m);
     System.out.print("nest størst: ");
     for (int i : nm) System.out.print( i + " ");
+
+    int []storter = Tabell.sorter(aT);
+    System.out.println("sortert: ");
+    for (int i : storter) System.out.print(i + " ");
 }
 }
