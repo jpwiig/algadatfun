@@ -45,7 +45,7 @@ public class Tabell {
         int m = fra;
         int maksverdi = a[fra];
         for (int i = fra; i < til; i++) {
-            if (a[i] > = maksverdi) {
+            if (a[i] >= maksverdi) {
                 m = i;
                 maksverdi = a[m];
             }
