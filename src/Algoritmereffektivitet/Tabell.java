@@ -212,7 +212,8 @@ public class Tabell {
     }
 
     public static void snu(int[] a, int v, int h)  // snur intervallet a[v:h]
-    {while (v < h) bytt(a, v++, h--);
+    {
+        while (v < h) bytt(a, v++, h--);
     }
 
     public static void snu(int[] a, int v)  // snur fra og med v og ut tabellen
@@ -236,22 +237,20 @@ public class Tabell {
         snu(a, i + 1);
         return true;
     }
-    public static int inversjoner(int[] a)
-    {
+
+    public static int inversjoner(int[] a) {
         int antall = 0;  // antall inversjoner
-        for (int i = 0; i < a.length - 1; i++)
-        {
-            for (int j = i + 1; j < a.length; j++)
-            {
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = i + 1; j < a.length; j++) {
                 if (a[i] > a[j]) antall++;  // en inversjon siden i < j
             }
         }
         return antall;
     }
 
-    public static void utvalgssortering(int []x ){
-        if(x.length == 0) throw new NoSuchElementException("tom fakkings liste fuck deg  :)");
-        for (int i  = 0; i <= x.length - 1; i++) {
+    public static void utvalgssortering(int[] x) {
+        if (x.length == 0) throw new NoSuchElementException("tom fakkings liste fuck deg  :)");
+        for (int i = 0; i <= x.length - 1; i++) {
             for (int j = 1; j <= x.length - 1; j++) {
                 if (x[i] >= x[j]) {
                     int temp = x[i];
@@ -262,6 +261,36 @@ public class Tabell {
         }
     }
 
+    public static void utvalgssortering(int[] x, int f, int t) {
+        if (x.length == 0) throw new NoSuchElementException("tom fakkings liste fuck deg  :)");
+        for (int i = f; i < t - 1; i++) {
+            for (int j = f + 1; j < t - 1; j++) {
+                if (x[i] >= x[j]) {
+                    int temp = x[i];
+                    x[i] = x[j];
+                    x[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static int linjaersok(int[] a, int valueF) {
+        if (a.length < 0) throw new NoSuchElementException("ayo bro denne er for kort");
+        {
+            if (a.length > valueF || a.length == 0)
+                return a.length - 1;
+        }
+        for (int i = 0; i < valueF; i++) {
+            for (int j = 1; j <  valueF; j++){
+                if (a[i] == a[j]) valueF = a[i];
+                return valueF == a[i] ? i : -(i + 1);
+
+            }
+        }
+
+        return valueF;
+    }
 }
+
 
 
