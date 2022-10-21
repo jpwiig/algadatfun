@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class main {
     public static void main(String[] args) {
-        int[] a = {8, 3, 5, 7, 9, 2, 1, 4};
+      /*  int[] a = {8, 3, 5, 7, 9, 2, 1, 4};
         fakultet fakkas = new fakultet();
         maksogmin mnm = new maksogmin();
         int fakultet = 4;
@@ -53,7 +53,7 @@ public class main {
         //  System.out.println("d: " + Arrays.toString(bd));
         int [] inv = {3,5,4,6,8,1,2,9,10};
         System.out.println(Tabell.inversjoner(inv));
-
+*/
        int []ar= Tabell.randPerm(100000);
        int [] arunfucked =Arrays.copyOf(ar, ar.length);
        int test [] = {1,2,3,4,5,6};
@@ -63,6 +63,6 @@ public class main {
        System.out.println(Arrays.toString(ar));
 
        int [] aSok = {1,1,1,1,3,4,5,6,7,9};
-        System.out.println("linjær søk" +  Tabell.linjaersok(aSok,4));
+        System.out.println("linjær søk: " +  Tabell.linjaersok(aSok,4));
     }
 }

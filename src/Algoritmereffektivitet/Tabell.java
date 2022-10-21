@@ -290,6 +290,10 @@ public class Tabell {
 
         return valueF;
     }
+
+  /*  public static int linjaersokintervall(int [] a, int value, int t, int f){
+
+    }*/
 }
 
 
