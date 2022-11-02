@@ -111,12 +111,27 @@ public class BinTree<T> {
 
     public T fjern (int posisjon){
         Node<T> removeNode = finnNode(posisjon);
-        if (removeNode.Rightchild == null && removeNode.Leftchild == null){
-
-        }
+        boolean notOkRemove = true;
         if (removeNode.Leftchild != null|| removeNode.Rightchild != null){
             throw new UnsupportedOperationException("Du kan ikke fjerne en node som ikke er bladnode");
+        } else {
+            //check if it is a right child or left child
+            if (posisjon % 2 == 0){
+                //left child
+                Node<T> parent = finnNode(posisjon/2);
+                removeNode = null;
+                parent.Rightchild = null;
+            }
+            if (posisjon % 2 != 0){
+                //right child
+                Node<T> parent = finnNode((posisjon - 1)/2);
+                parent.Leftchild = null;
+                removeNode = null;
+            }
+            //the branch?
+
         }
+
         return removeNode.val;
     }
 }
@@ -126,6 +141,7 @@ class mainBinTree {
         Character[] treeeins1 = {'D', 'I', 'H', 'L', 'O', 'B', 'A', 'E', 'N', 'G', 'K', 'M', 'J', 'F', 'C'};
         int[] positions1 = {1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 21, 24, 25, 42, 43};
         BinTree<Character> bintree1 = new BinTree(positions1, treeeins1);
+        bintree1.fjern(43);
         System.out.println(bintree1.toString());
 
         Character[] treeins2 = {'E', 'I', 'B', 'G', 'A', 'H', 'K', 'L', 'O', 'D', 'N', 'M', 'C', 'J', 'F'};
