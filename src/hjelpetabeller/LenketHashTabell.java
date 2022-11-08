@@ -45,13 +45,25 @@ public class LenketHashTabell<T> // implements Beholder<T>
         return antall == 0;
     }
 
-    public boolean fjern (T vedi){
+    public boolean fjern (T verdi){
+        if (verdi == null) return false;
+        int hashverdi  = verdi.hashCode() & 0x7ffffff;
+        int index  = hashverdi % hash.length;
+        Node <T>  remove = hash[index];
+        Node next = null;
+        while (remove != null){
+            if (verdi.equals(remove.verdi))break;
+            remove = (next = remove).neste;
+        }
+        if (remove==null)return false;
+        else if (remove == hash[index]) hash [index] = remove.neste;
+        else next.neste = remove.neste;
         return true;
     }
 
- /*   public boolean nullstil(){
-
-    }*/
+  public boolean nullstil(){
+return true;
+    }
     // flere metoder skal inn her
 public boolean legginn (T verdi){
     Objects.requireNonNull(verdi, "verdi er null");
