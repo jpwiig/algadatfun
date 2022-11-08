@@ -1,5 +1,7 @@
 package hjelpetabeller;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class LenketHashTabell<T> // implements Beholder<T>
@@ -58,11 +60,45 @@ public class LenketHashTabell<T> // implements Beholder<T>
         if (remove==null)return false;
         else if (remove == hash[index]) hash [index] = remove.neste;
         else next.neste = remove.neste;
+
+        antall--;
         return true;
     }
 
   public boolean nullstil(){
+        if (antall > 0) {
+            antall = 0;
+            for (int i = 0; i < hash.length; i++) {
+                hash[i] = null;
+            }
+        }
 return true;
+    }
+    @Override
+    public Iterator<T> iterator(){
+        return new HashTabelliterator();
+    }
+
+    private class HashTabelliterator implements Iterator<T>{
+    private int index = 0;
+    private Node<T> p = null;
+    private boolean fjernOK = false;
+    private int Iteratorendringer = 0;
+
+    private HashTabelliterator() {
+        if (!tom()){
+            while(hash[index] == null) index++;
+            p = hash[index];
+        }
+    }
+    public boolean hasNext(){
+        return p != null;
+    }
+    public T next(){
+        if (!hasNext()) throw new NoSuchElementException("Ingen flere verdier!");
+        while (hash[index] == null) index ++;
+        p = hash[index];
+    }
     }
     // flere metoder skal inn her
 public boolean legginn (T verdi){
