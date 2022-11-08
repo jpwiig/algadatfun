@@ -74,7 +74,6 @@ public class LenketHashTabell<T> // implements Beholder<T>
         }
 return true;
     }
-    @Override
     public Iterator<T> iterator(){
         return new HashTabelliterator();
     }
@@ -96,9 +95,23 @@ return true;
     }
     public T next(){
         if (!hasNext()) throw new NoSuchElementException("Ingen flere verdier!");
+        T verdi = p.verdi;
         while (hash[index] == null) index ++;
         p = hash[index];
+        while (++index  < hash.length && hash[index] == null);
+        p = index < hash.length ? hash[index] : null;
+        return verdi;
     }
+    }
+    public boolean inneholder (T verdi){
+        if (verdi == null) return false;
+        int hashverdi = verdi.hashCode() & 0x7fffffff;
+        Node <T> p = hash[hashverdi % hash.length];
+        while (p != null){
+            if (verdi.equals(p.verdi)) return true;
+            p = p.neste;
+        }
+        return false;
     }
     // flere metoder skal inn her
 public boolean legginn (T verdi){
