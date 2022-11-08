@@ -1,5 +1,7 @@
 package hjelpetabeller;
 
+import java.util.Objects;
+
 public class LenketHashTabell<T> // implements Beholder<T>
 {
     private static class Node<T>      // en indre nodeklasse
@@ -47,14 +49,38 @@ public class LenketHashTabell<T> // implements Beholder<T>
         return true;
     }
 
-    public boolean nullstil(){
-        Node<T>node = new Node<>(null, hash, node.neste);
-        while (node.neste.verdi != null){
-            node = node.neste;
-            node.verdi = null;
+ /*   public boolean nullstil(){
+
+    }*/
+    // flere metoder skal inn her
+public boolean legginn (T verdi){
+    Objects.requireNonNull(verdi, "verdi er null");
+    if (antall >= grense){
+        utvid();
+    }
+    int hashverdi = verdi.hashCode() & 0x7ffffff;
+    int indeks =  hashverdi % hash.length;
+    //legger til første node som hører til indek
+    hash[indeks] =  new Node<>(verdi,hashverdi, hash[indeks]);
+    antall++;
+    return true;
+}
+
+    public void utvid() {
+        @SuppressWarnings({"rawtypes", "unchecked"})
+        Node<T>[] nyhash = new Node[2 * hash.length + 1];
+        for (int i = 0; i  < hash.length; i++){
+            Node<T> p = hash[i];
+            while (p !=  null){
+                Node q = p.neste;
+                int nyindeks = p.hashverdi % nyhash.length;
+
+                p.neste = nyhash [nyindeks];
+                nyhash [nyindeks] = p;
+                p = q;
+            }
         }
     }
-    // flere metoder skal inn her
 
 }  // class LenketHashTabell
 

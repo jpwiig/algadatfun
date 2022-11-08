@@ -15,7 +15,6 @@ public class week44 {
         int h1 = a.hashCode(), h2 = b.hashCode(), h3 = c.hashCode(), h4 = d.hashCode();
         System.out.println("h1: " + h1 + " h2: "+h2 + " h3: " +h3 + " h4: " + h4);
 
-
          String a1 = "ab";
          String a2 = "ba";
          boolean hashchck = (a1.hashCode() == a2.hashCode());
