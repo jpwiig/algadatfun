@@ -38,7 +38,9 @@ public final class VGraf implements Iterable<String>
 
     private final Map<String, Node> noder;       // en map til å lagre nodene
 
-    public VGraf()                               // standardkonstruktør
+    public VGraf(String url){
+
+    }                               // standardkonstruktør
     {
         noder = new TreeMap<>();                   // oppretter en TreeMap
     }
@@ -101,10 +103,6 @@ public final class VGraf implements Iterable<String>
 
     public static void main(String[] args) {
 
-        for (String node : graf)  // bruker iteratoren i grafen
-        {
-            System.out.println(node + " -> " + graf.kanterFra(node));
-        }
 
     }
 
