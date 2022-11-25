@@ -242,6 +242,6 @@ class main{
         {
             System.out.println(node + " -> " + graf.kanterFra(node));
         }
-        String URL2 =
+    //    String URL2 =
     }
 }
