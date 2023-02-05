@@ -29,6 +29,7 @@ System.out.println(B); // et implisitt kall på toString
             a = new int[n];
             for (int i = 0; i < n; i++) {
                 if (b[i] > b[i++]) throw new IllegalArgumentException("Det er no som ikke stemmer her");
+                if (b[i] == b[i]) throw new IllegalArgumentException("Det kan ikke være likt");
                 else {
                     a[i] = b[i];
                 }
