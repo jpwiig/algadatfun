@@ -40,7 +40,7 @@ System.out.println(B); // et implisitt kall på toString
 // kode mangler - skal lages
             String print = "[";
             for (int i : a) print = a + ", ";
-            print = "]";
+            print += "]";
             return print;
         }
     } // class Mengde
