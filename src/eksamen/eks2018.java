@@ -1,5 +1,7 @@
 package eksamen;
 
+import javax.swing.event.MenuDragMouseEvent;
+
 public class eks2018 {
     /*
 Lag konstruktøren public Mengde(int[] b, int n) (se vedlegget). Tabellen a skal ha lengde n og skal få som

@@ -66,7 +66,7 @@ public class Eksamen2019 {
     }
 
     public static void main(String[] args) {
-        LinkedList liste = new LinkedList();
+        Eks20192.LinkedList liste = new Eks20192.LinkedList();
         char values[] = "ABCDEFGHIJ".toCharArray();
 
         for (char val : values) {
