@@ -66,6 +66,7 @@ public class Eks20192 {
          */
         private void printRecursive(Node node) {
             //Her skal din kode komme i oppgave d (del 2 av 2)
+            if (node == null) throw new IllegalArgumentException("null verdi på node");
             while (head.next != null){
                 printRecursive(head);
             }
