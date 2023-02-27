@@ -63,7 +63,11 @@ package eksamen;
                     curr.prev.next =  curr.next.next;
                     curr.next.prev = curr.prev.prev;
                 }
-                if (curr == tail && index < 0) tail = curr.prev;  //tail
+                if (curr == tail && index < 0) {
+                    //tail
+                    tail = curr.prev;
+                    curr.prev.next = null;
+                }
             }
         }
     }
